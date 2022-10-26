@@ -6,6 +6,7 @@ import android.view.View
 
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 
 class MainCode : AppCompatActivity() {
@@ -21,6 +22,11 @@ class MainCode : AppCompatActivity() {
             if (user=="nfelizola" && pass=="1234") {
                 Toast.makeText(this, "Bem vindo Sr. $user sua senha está  correta", Toast.LENGTH_LONG).show()
                 // depois da mensagem de usuário correto colocar a imagem do avatarok
+                var meuavatar = findViewById<ImageView>(R.id.imageView)
+                //meuavatar.setImageResource(R.drawable.avatarok)
+
+                // com bibioteca glide
+            // Glide.with(this).Load("url imagem").into(imageview)
             }else{
                 // nesta linha colocar o codigo para trocar a imagem do avatar para a que indica acesso negado
                 Toast.makeText(this,"Revise suas informações",Toast.LENGTH_LONG).show()
