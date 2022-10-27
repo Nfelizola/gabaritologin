@@ -2,36 +2,31 @@ package br.com.felizola.gabaritologin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
+import android.view.View.OnClickListener
+import android.view.View.OnKeyListener
 
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 
-class MainCode : AppCompatActivity() {
+class MainCode : AppCompatActivity(), OnKeyListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.telainicial)
-        val user = findViewById<EditText>(R.id.usuario).text.toString()
-        val pass = findViewById<EditText>(R.id.password).text.toString()
-        val bt = findViewById<Button>(R.id.btnok)
-        bt.setOnClickListener {
-            val user = findViewById<EditText>(R.id.usuario).text.toString()
-            val pass = findViewById<EditText>(R.id.password).text.toString()
-            if (user=="nfelizola" && pass=="1234") {
-                Toast.makeText(this, "Bem vindo Sr. $user sua senha está  correta", Toast.LENGTH_LONG).show()
-                // depois da mensagem de usuário correto colocar a imagem do avatarok
-                var meuavatar = findViewById<ImageView>(R.id.imageView)
-                //meuavatar.setImageResource(R.drawable.avatarok)
+        var user = findViewById<EditText>(R.id.usuario).text.toString()
+        var pass = findViewById<EditText>(R.id.password).text.toString()
+        var editsenha = findViewById<EditText>(R.id.password)
+        var press = editsenha.setOnKeyListener(this)
+        if (press) { Toast.makeText(this, "ola", Toast.LENGTH_SHORT).show()}
 
-                // com bibioteca glide
-            // Glide.with(this).Load("url imagem").into(imageview)
-            }else{
-                // nesta linha colocar o codigo para trocar a imagem do avatar para a que indica acesso negado
-                Toast.makeText(this,"Revise suas informações",Toast.LENGTH_LONG).show()
+    }
 
-                 }
-        }
+    override fun onKey(p0: View?, p1: Int, p2: KeyEvent?): Boolean {
+
+        return true
     }
 }
+
